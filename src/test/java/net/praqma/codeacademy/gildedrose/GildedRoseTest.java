@@ -23,7 +23,7 @@ public class GildedRoseTest {
     }
     @Test
     public void never_over_50() {
-       # Item[] items = new Item[] { new Item("Aged Brie", 0, 50) };
+        Item[] items = new Item[] { new Item("Aged Brie", 0, 50) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertTrue("brie is higher quality than it should be able to",app.items[0].quality==50 );
