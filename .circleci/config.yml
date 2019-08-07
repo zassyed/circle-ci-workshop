@@ -10,26 +10,26 @@ jobs:
           command: gradle test
       - store_test_results:
           path: build/test-results 
- package:
-   docker:
-     - image: circleci/openjdk:8-jdk
-    steps:
-     - checkout
-     - run:
-         name: package
+   package:
+     docker:
+       - image: circleci/openjdk:8-jdk
+     steps:
+       - checkout
+       - run:
+          name: package
           command: gradle jar
       - store_artifacts:
           name: publish jar
           command: build/libs
           destination: prefil
-    workflows:
-      version: 2
-      do_stuff:
-        jobs:
-         - test
-         - package:
-             requires:
-              - test
+  workflows:
+    version: 2
+    do_stuff:
+      jobs:
+        - test
+        - package:
+            requires:
+             - test
 
 
  #build:
